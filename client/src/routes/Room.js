@@ -145,7 +145,7 @@ const Room = (props) => {
 
     function handleOffer(incoming) {
         peerRef.current = createPeer();
-        peerRef.cuurent.ondatachannel = (event) => {
+        peerRef.current.ondatachannel = (event) => {
             sendChannel.current = event.channel;
             sendChannel.current.onmessage = handleRecieveMessage;
         };
@@ -192,7 +192,7 @@ const Room = (props) => {
     }
 
     function sendMessage() {
-        sencChannel.current.send(text);
+        sendChannel.current.send(text);
         setMessages(messages => [...messages, { yours: true, value: text }]);
         setText("");
     }
